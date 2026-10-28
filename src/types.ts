@@ -30,3 +30,8 @@ export type EditCardHandler = (columnId: number, cardId: number, newCardTitle: s
 export type DeleteCardHandler = (columnId: number, cardId: number) => void
 
 export type OnEditCancel = (e: React.FormEvent) => void
+
+// Stores enough information to restore a deleted card or column
+export type UndoItem =
+  | { type: 'card'; card: Card; columnId: number; index: number }
+  | { type: 'column'; column: Column; index: number }
